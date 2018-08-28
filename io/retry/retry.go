@@ -58,7 +58,7 @@ func main() {
 }
 
 func isRetriable(tool string, err error) bool {
-	if path.Base(tool) == "gsutil" {
+	if path.Base(tool) == "enhanced_gsutil" {
 		// Requests to the local metadata service can fail transiently.
 		return strings.Contains(err.Error(), `Your "GCE" credentials are invalid`)
 	}

@@ -19,6 +19,9 @@ RUN apk --no-cache add go musl-dev
 COPY retry/retry.go .
 RUN go build -o /usr/local/bin/retry retry.go
 
+COPY enhanced_gsutil/enhanced_gsutil.go .
+RUN go build -o /usr/local/bin/enhanced_gsutil enhanced_gsutil.go
+
 COPY wrappers/* /usr/local/bin/
 
 ENV PATH="/usr/local/bin:${PATH}"
